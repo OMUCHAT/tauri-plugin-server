@@ -1,19 +1,19 @@
 [package]
-name = "tauri-plugin-localhost"
+name = "omuchat-tauri-plugin-server"
 version = "0.1.0"
-description = "Expose your apps assets through a localhost server instead of the default custom protocol."
-authors.workspace = true
-license.workspace = true
-edition.workspace = true
-rust-version.workspace = true
+description = "Expose your apps assets through a localhost server instead of the default custom protocol. (This project is a fork of tauri-plugin-localhost)"
+edition = "2021"
+authors = [ "Tauri Programme within The Commons Conservancy" ]
+license = "Apache-2.0 OR MIT"
+rust-version = "1.64"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-serde.workspace = true
-serde_json.workspace = true
-tauri.workspace = true
-log.workspace = true
-thiserror.workspace = true
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri = "1"
+log = "0.4"
+thiserror = "1"
 tiny_http = "0.12"
 http = "0.2"

@@ -58,12 +58,12 @@ impl Builder {
         let port = self.port;
         let on_request = self.on_request.take();
 
-        PluginBuilder::new("localhost")
+        PluginBuilder::new("server")
             .setup(move |app| {
                 let asset_resolver = app.asset_resolver();
                 std::thread::spawn(move || {
                     let server =
-                        Server::http(&format!("localhost:{port}")).expect("Unable to spawn server");
+                        Server::http(&format!("0.0.0.0:{port}")).expect("Unable to spawn server");
                     for req in server.incoming_requests() {
                         let path = req
                             .url()
