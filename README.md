@@ -24,7 +24,7 @@ Install the Core plugin by adding the following to your `Cargo.toml` file:
 
 ```toml
 [dependencies]
-omuchat-tauri-plugin-server = { git = "https://github.com/tauri-apps/plugins-workspace", branch = "v1" }
+omuchat-tauri-plugin-server = { git = "https://github.com/OMUCHAT/tauri-plugin-server", branch = "v1" }
 portpicker = "0.1" # used in the example to pick a random free port
 ```
 
@@ -48,7 +48,7 @@ fn main() {
   context.config_mut().build.dev_path = AppUrl::Url(window_url.clone());
 
   tauri::Builder::default()
-    .plugin(tauri_plugin_localhost::Builder::new(port).build())
+    .plugin(omuchat_tauri_plugin_server::Builder::new(port).build())
     .setup(move |app| {
       WindowBuilder::new(app, "main".to_string(), window_url)
         .title("Localhost Example")
